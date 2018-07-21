@@ -2,3 +2,4 @@ This repository has php javascript and html files for modules regarding the logi
 You can use them in your project.
 Before integrating them in your project do make a table in your database.
 This database should have a table regarding relevant columns
+Each folder contains the different modules.
