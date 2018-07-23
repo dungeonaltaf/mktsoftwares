@@ -113,7 +113,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                 $header = 'From:nonreply@websiteyouwilluse.com'."\r\n";
                 mail($to,$subject,$message,$header);
                 //for testing purpose of email verification
-                $url = "http://localhost/verify.php?email=".$email."&hash=".$hash."";
+                $url = "http://localhost/verify/verify.php?email=".$email."&hash=".$hash."";
                 $site_title = "Redirects you for email Verification";        
                 echo "<a href=$url>$site_title</a>";
 
