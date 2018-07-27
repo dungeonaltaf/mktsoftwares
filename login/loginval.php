@@ -1,8 +1,15 @@
 <?php
+
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "asd@123";
 $dbname = "users";
+
+
+
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);
     
@@ -61,8 +68,30 @@ $password1 = mysqli_real_escape_string($conn, $_POST['password1']);
             $data = mysqli_num_rows($result);
          
             if($data==1)
-           {
-              echo "Successfully Logged in...";
+           {   
+               function randomString($length) 
+               {
+                 $str = "";
+                 $characters = array_merge(range('A','Z'), range('a','z'), range('0','9'));
+                 $max = count($characters) - 1;
+                 for ($i = 0; $i < $length; $i++) 
+                 {
+                   $rand = mt_rand(0, $max);
+                   $str .= $characters[$rand];
+                 }
+                return $str;
+            }
+
+             $id = randomString(32);  
+             $_SESSION["id"]=$id;  
+             $_SESSION["email"] = $email;
+             $_SESSION["loggedIn"] = 1;
+            // header("Location:../profile/profile.php?id=".$id."");
+
+             echo "Successfully Logged in...";
+
+            // header("Location:../profile/profile.php?id=".$id."");
+
               exit(success);
            }
             else
@@ -74,5 +103,5 @@ $password1 = mysqli_real_escape_string($conn, $_POST['password1']);
         }
     
 
-mysql_close ($connection); // Connection Closed.
+mysql_close ($conn); // Connection Closed.
 ?>
