@@ -84,9 +84,25 @@ $('.login').on('click', function (event) {
                  password1:password
 
          },
-         success: function(response){
+         success: function(response)
+         {
 
             $("#response").html(response);
+               
+            
+            if (response.indexOf('success')>0) 
+            {   
+
+                
+               // var mylink ="http://localhost/profile/profile.php?id=";
+               // var mylink1 = "http://www.facebook.com";
+             // $(location).attr('href',mylink);
+               
+
+            }
+
+
+
          },
 
          dataType:'text'
@@ -98,8 +114,13 @@ $('.login').on('click', function (event) {
 
 
     }
-    
 
-});
+
+
+}); 
+
       
 });
+
+
+

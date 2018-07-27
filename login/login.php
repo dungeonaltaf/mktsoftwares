@@ -1,3 +1,14 @@
+<?php 
+session_start();
+$id = $_SESSION["id"];
+if (isset($_SESSION["loggedIn"])==1)
+{
+   header("Location:../profile/profile.php?id=".$id."");
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -21,11 +32,11 @@
     <h3>Enter your credentials</h3>
     <div class="inputs"> 
       <div class="email">
-        <input class="first" type="text" placeholder="Your email"/ id="email" required>
+        <input class="first" type="text" placeholder="Your email" id="email" required>
         <button class="next">Next</button>
       </div>
       <div class="password">
-        <input class="second" type="password" placeholder="Enter Password"/ id = "password" required>
+        <input class="second" type="password" placeholder="Enter Password" id = "password" required>
         <button class="login">Log in</button>
       </div>
     </div>
@@ -40,7 +51,11 @@
 <script src = "loginval.js"></script>
 
 
+
+
 </body>
 
 </html>
+
+
 
