@@ -1,0 +1,41 @@
+//This trigger for generating new uuid for later data integration
+
+DELIMITER #
+CREATE TRIGGER insert_guid 
+BEFORE INSERT ON guid_tool
+FOR EACH  ROW 
+BEGIN 
+    SET NEW.guid_key = UUID(); 
+END;
+#
+DELIMITER ;
+
+//This table is for job section of profile
+create table job 
+(jobname varchar (40),
+employername varchar (40), 
+location varchar (40),
+date date, 
+jobabout text, 
+jobid int(20), 
+foreign key (jobid) references userdata(jobid));
+
+
+// This table is for the education section of profile
+create table education 
+(coursename varchar (50), 
+insitutename varchar(150), 
+location varchar(40), 
+date date,
+courseabout text, 
+educationid int(20),
+foreign key (educationid) references userdata (educationid));
+
+
+//This table is for the locaiton of user
+create table location 
+(location varchar (50), 
+address varchar(150),
+locationid int(20), 
+foreign key (locationid) references userdata (locationid));
+
